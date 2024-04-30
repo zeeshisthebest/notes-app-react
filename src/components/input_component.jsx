@@ -24,8 +24,8 @@ function InputField (props) {
     }
 
     return <div className="mb-5 mt-0">
-        <input type="text" name="item" placeholder="Type your note here..." onKeyUp={addItemByKey}
-            className="border-2 text-wrap border-hot-stone px-5 py-3 placeholder-slate-400 w-5/12 rounded-md text-fluorescent-red text-lg focus:border-ochre focus:outline-none" maxLength="150" />
+        <input type="text" name="item" placeholder="Type your note here..." onKeyUp={addItemByKey} maxLength="150"
+            className="border-2 text-wrap border-hot-stone px-5 py-3 placeholder-slate-400 w-5/12 rounded-md text-fluorescent-red text-lg focus:border-ochre focus:outline-none" />
         <input type="submit" value="Save Note" onClick={addItem} className="py-4 px-5 font-bold border-eye-of-new bg-fluorescent-red border-2 rounded-md ml-2 text-white hover:bg-mandarin cursor-pointer hover:border-ochre" />
     </div>
 }

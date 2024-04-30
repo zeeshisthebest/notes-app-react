@@ -4,8 +4,8 @@ import NoteItem from "./components/note_component"
 
 
 // Creates the mapping
-function createNote (note, index) {
-  return <NoteItem key={index} date={note.date} time={note.time} body={note.body} />;
+function createNote (note, index, rmvFunction) {
+  return <NoteItem key={index} date={note.date} time={note.time} body={note.body} id={index} deleteItem={rmvFunction} />;
 }
 
 function App () {
@@ -27,6 +27,11 @@ function App () {
       body: note
     }]);
   }
+
+  // Removes the item
+  function deleteItem (id) {
+    updateNote(notes => notes.filter((_, index) => index !== id));
+  }
   // Rendering
   return (
     <>
@@ -37,7 +42,7 @@ function App () {
       {noteList.length === 0 ?
         <p className="text-hot-stone font-light font-sans text-6xl">No note found</p> :
         <section className="grid grid-cols-5 grid-flow-dense gap-4">
-          {noteList.map(createNote)}
+          {noteList.map((item, i) => createNote(item, i, deleteItem))}
         </section>}
     </>
   )
